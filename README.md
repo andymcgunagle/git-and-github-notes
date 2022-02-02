@@ -26,6 +26,8 @@ https://git-scm.com/docs
 
 - Try to keep each commit focused on a single thing. This makes it easier to undo changes later on and can also make your code easier to review.
 
+- [`git config --global core.editor "code --wait"`](https://git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config): Sets VS Code as your your core.editor and enables you to use `git commit` to open a new file in VS Code where it will be easier to compose longer commit messages.
+
 ### Restoring
 
 - `git restore .` or `git restore <file>`: Discard changes to all files or specific files in the working directory. If a path is tracked but does not exist in the restore source, it will be removed to match the source.
