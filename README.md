@@ -34,6 +34,9 @@ https://git-scm.com/docs
 
 - [`git config --global core.editor "code --wait"`](https://git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config): Sets VS Code as your your core.editor and enables you to use `git commit` (without the `-m` flag) to open a new file in VS Code and easily compose longer commit messages there.
 
+- `git commit -a -m "My commit message..."`: The `-a` flag automatically stages files that have been modified and deleted (without the need for `git add`). 
+  - Note that new files you have not told Git about are not tracked - you'd need to include them with `git add <file>`.
+
 ### Logging
 
 - `git log --oneline`: Shows the first line of commit messages and a shorter snippet of the 40-byte hexadecimal commit object name.
@@ -53,6 +56,21 @@ https://git-scm.com/docs
   - `*.log` will ignore any files with the **.log** extension.
 
 ### Branching
+
+- `HEAD` is a pointer that refers to the current "location" in your repository. It points to a particular branch reference.
+
+- `git branch`: View your existing branches.
+  - `*` will indicate the branch you are currently on.  
+
+- `git branch <branch-name>`: Creates a new branch based on the current HEAD. 
+  - This command does not switch HEAD to the new branch - it just creates the new branch.
+  - Branch names should not include spaces.
+
+- `git switch <branch-name>`: Once you have created a new branch, this will switch HEAD to it.
+  - `git checkout <branch-name>` can also be used to switch you to a different branch. `git checkout` also does a ton of other things, so `git switch` was made for simplicity.
+  - You'll need to commit or stash your changes before you switch to a divergent branch.
+
+- `git switch -c <branch-name>`: One-liner to create and switch to the newly created branch.
 
 
 
