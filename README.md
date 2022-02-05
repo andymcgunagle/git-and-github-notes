@@ -60,7 +60,8 @@ https://git-scm.com/docs
 - `HEAD` is a pointer that refers to the current "location" in your git repository - it points to a particular branch reference.
 
 - `git branch`: View your existing branches.
-  - `*` will indicate the branch you are currently on.  
+  - `*` will indicate the branch you are currently on.
+  - Adding the `-v` flag will provide a bit more info on each branch.  
 
 - `git branch <branch-name>`: Creates a new branch based on the current HEAD. 
   - This command does not switch HEAD to the new branch - it just creates the new branch.
@@ -77,5 +78,26 @@ https://git-scm.com/docs
 
 - `git branch -m <new-branch-name>`: Rename a branch.
   - Must be on the branch you want to rename.
+
+### Merging branches
+
+- Incorporate changes from one branch into another.
+  - Branches are merged, not specific commits.
+
+- Note that you'll always merge to the current HEAD branch.
+  - So, first you'll point the HEAD at the receiving branch using `git switch <receiving-branch-name>`.
+  - Then you'll merge the other branch into that branch using `git merge <branch-being-merged-name>`.
+  - Branches are not deleted when merged. If they're no longer needed, you can delete them manually after changes are merged using `git branch -d <branch-name>`.
+
+- If there wasn't additional work on the receiving branch and the merge is simply updating the receiving branch to include newer upstream revisions from the branch being merged, then the merge is called a *fast-forward merge*. The pointer is simply moved forward.
+
+- If there has been additional work on the receiving branch, then git performs a *merge commit* - you end up with a new commit on the receiving branch and git will prompt you for a message.
+
+#### Resolving Merge Conflicts
+
+1. Open up the file(s) with merge conflicts.
+2. Edit the file(s) to remove the conflicts - keep content from one or both of the branches.
+3. Remove the conflict "markers" in the document.
+4. Add your changes, then make a commit.
 
 ## GitHub Notes
