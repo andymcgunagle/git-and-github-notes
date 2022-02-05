@@ -57,7 +57,7 @@ https://git-scm.com/docs
 
 ### Branching
 
-- `HEAD` is a pointer that refers to the current "location" in your repository. It points to a particular branch reference.
+- `HEAD` is a pointer that refers to the current "location" in your git repository - it points to a particular branch reference.
 
 - `git branch`: View your existing branches.
   - `*` will indicate the branch you are currently on.  
@@ -72,6 +72,10 @@ https://git-scm.com/docs
 
 - `git switch -c <branch-name>`: One-liner to create and switch to the newly created branch.
 
+- `git branch -d <branch-name>`: Deletes a branch.
+  - Cannot delete the branch the HEAD is currently on.
 
+- `git branch -m <new-branch-name>`: Rename a branch.
+  - Must be on the branch you want to rename.
 
 ## GitHub Notes
