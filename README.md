@@ -100,4 +100,21 @@ https://git-scm.com/docs
 3. Remove the conflict "markers" in the document.
 4. Add your changes, then make a commit.
 
+### Comparing Changes
+
+- `git diff`: Without any flags will list all the changes in our working directory that are not staged. The header in the output that's generated will be in the following format:
+  - Which files are being compared (typically just the same file over time): `diff --git a/README.md b/README.md`
+  - File metadata (usually not important): `index 59489d0..393256e 100644`
+  - Changes in file **a** will be indicated with a minus sign: `--- a/README.md`
+  - Changes in file **b** will be indicated with a plus sign: `+++ b/README.md`
+  - "lineChunkBegins, numberOfLinesInChunk" in file **a** (minus sign) and file **b** (plus sign): `@@ -100,4 +100,8 @@`
+
+- `git diff HEAD`: Lists *all* changes in the working tree since your last commit (staged and unstanged changes).
+  - Can add the file name to view changes in a specific file.
+
+- `git diff --staged` or `git diff --cached`: Lists the changes between the staging area and the last commit (shows all the changes that would be included if you were to commit at that moment).
+  - Can add the file name to view changes in a specific file.
+
+- `git diff branch1 branch2` or `git diff branch1..branch2`: List the changes between the tips of branch1 and branch2.
+
 ## GitHub Notes
