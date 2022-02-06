@@ -117,4 +117,9 @@ https://git-scm.com/docs
 
 - `git diff branch1 branch2` or `git diff branch1..branch2`: List the changes between the tips of branch1 and branch2.
 
+- `git diff commit1 commit2` or `git diff commit1..commit2`: List the changes between the tips of commit1 and commit2.
+  - commit1 and commit2 would be the commit hashes of the commits in question. 
+  - You can use the shortened commit hash displayed with `git log --oneline`.
+  - The output will be easier to read if commit1 is older and commit2 is newer.
+
 ## GitHub Notes
