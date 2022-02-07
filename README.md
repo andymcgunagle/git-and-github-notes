@@ -130,9 +130,16 @@ https://git-scm.com/docs
 
 - `git stash` or `git stash save`: Takes all uncommitted changes (staged and unstaged) and stashes them. This cleans the working tree and allows you to freely switch to other branches.
   - You can stash multiple changes onto the stack of stashes. They will all be stashed in the order you added them.
+  - `git stash list`: Shows the list of stashes.
+  - `WIP` stands for "work in progress".
 
 - `git stash pop`: Removes the most recently stashed changes in your stash and re-applies them to your working copy.
 
 - `git stash apply`: Applies whatever is stashed away without removing it from the stash. Useful if you want to apply stashed changes to multiple branches. This can potentially create merge conflicts that can be resolved in the typical fashion.
+  - You can use `git stash apply stash@{2}`, for example, to apply a particular stash from the stash list.
+
+- `git stash drop stash@{2}`: Delete a particular stash by specifying the stash ID number.
+
+- `git stash clear`: Deletes all stashes.
 
 ## GitHub Notes
