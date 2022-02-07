@@ -109,7 +109,7 @@ https://git-scm.com/docs
   - Changes in file **b** will be indicated with a plus sign: `+++ b/README.md`
   - "lineChunkBegins, numberOfLinesInChunk" in file **a** (minus sign) and file **b** (plus sign): `@@ -100,4 +100,8 @@`
 
-- `git diff HEAD`: Lists *all* changes in the working tree since your last commit (staged and unstanged changes).
+- `git diff HEAD`: Lists *all* changes in the working tree since your last commit (staged and unstaged changes).
   - Can add the file name to view changes in a specific file.
 
 - `git diff --staged` or `git diff --cached`: Lists the changes between the staging area and the last commit (shows all the changes that would be included if you were to commit at that moment).
@@ -121,5 +121,18 @@ https://git-scm.com/docs
   - commit1 and commit2 would be the commit hashes of the commits in question. 
   - You can use the shortened commit hash displayed with `git log --oneline`.
   - The output will be easier to read if commit1 is older and commit2 is newer.
+
+### Stashing
+
+- When switching branches, you may encounter the following scenario:
+  - "error: Your local changes to the following files would be overwritten by checkout:"
+  - "Please commit your changes or *stash* them before you switch branches."
+
+- `git stash` or `git stash save`: Takes all uncommitted changes (staged and unstaged) and stashes them. This cleans the working tree and allows you to freely switch to other branches.
+  - You can stash multiple changes onto the stack of stashes. They will all be stashed in the order you added them.
+
+- `git stash pop`: Removes the most recently stashed changes in your stash and re-applies them to your working copy.
+
+- `git stash apply`: Applies whatever is stashed away without removing it from the stash. Useful if you want to apply stashed changes to multiple branches. This can potentially create merge conflicts that can be resolved in the typical fashion.
 
 ## GitHub Notes
