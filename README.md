@@ -150,4 +150,6 @@ https://git-scm.com/docs
   - You can also create a new branch starting from that previous commit using `git switch -c <new-branch-name>`, for example.
   - `git checkout HEAD~1` is an alternative syntax for jumping back to previous commits relative to a particular commit. `HEAD~1`, for example, refers to the commit before the commit HEAD is currently pointing at.
 
+- `git checkout HEAD <filename>`: Discard any changes in that file, reverting back to the HEAD.
+
 ## GitHub Notes
