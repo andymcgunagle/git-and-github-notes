@@ -142,4 +142,12 @@ https://git-scm.com/docs
 
 - `git stash clear`: Deletes all stashes.
 
+### Undoing Changes & Time Traveling
+
+- `git checkout <commit-hash>`: Jump back to a previous commit. 
+  - This will *detach the HEAD* (the HEAD will be pointing at a specific commit rather pointing at the branch pointer as it typically does).
+  - Use `git switch <branch-name>` to reattach the HEAD. You can also use `git switch -` to restore the previous HEAD position.
+  - You can also create a new branch starting from that previous commit using `git switch -c <new-branch-name>`, for example.
+  - `git checkout HEAD~1` is an alternative syntax for jumping back to previous commits relative to a particular commit. `HEAD~1`, for example, refers to the commit before the commit HEAD is currently pointing at.
+
 ## GitHub Notes
