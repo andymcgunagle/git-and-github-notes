@@ -150,6 +150,16 @@ https://git-scm.com/docs
   - You can also create a new branch starting from that previous commit using `git switch -c <new-branch-name>`, for example.
   - `git checkout HEAD~1` is an alternative syntax for jumping back to previous commits relative to a particular commit. `HEAD~1`, for example, refers to the commit before the commit HEAD is currently pointing at.
 
-- `git checkout HEAD <filename>`: Discard any changes in that file, reverting back to the HEAD.
+- `git checkout HEAD <filename(s)>` or `git checkout -- <filename(s)>`: Discard any changes in a specific file, reverting back to the HEAD.
+  - `git restore <filename(s)>` can do the same thing.
+
+- `git reset <commit-hash>`: Reset the repo back to a specific commit. This will get rid of the commits that came after the commit you're resetting to.
+  - The commits will be removed, but the changes in the working directory will remain.
+  
+- `git reset --hard <commit-hash>`: Gets rid of the commits and the associated changes that came after the commit you're resetting to.
+
+- `git revert <commit-hash>`: Reverses/undoes the changes made after a specific commit but creates a new commit rather than resetting to the commit.
+  - Will prompt you to enter a commit message.
+  - Preserves the history of the commit, which makes it easier to reconcile changes when collaborating.
 
 ## GitHub Notes
