@@ -163,3 +163,26 @@ https://git-scm.com/docs
   - Preserves the history of the commit, which makes it easier to reconcile changes when collaborating.
 
 ## GitHub Notes
+
+### Cloning
+
+- `git clone <url>`: Copy a repository from GitHub to your local machine.
+
+### SSH Key
+
+- With SSH keys, you can connect to GitHub without supplying your username and personal access token at each visit.
+
+- [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+- [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
+### Remotes
+
+- `git remote` or `git remote -v`: View any existing remotes for your repository.
+
+- "origin" is just a conventional remote name - it's the default remote name when you clone a GitHub repo. You can change it to whatever you like, but most people leave it.
+
+### Pushing
+
+- `git push <remote> <branch>`: Push a specific local branch up to the remote.
+  - You can push multiple branches up to GitHub.
