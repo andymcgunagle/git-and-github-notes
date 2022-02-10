@@ -2,10 +2,6 @@
 
 ## Git Notes
 
-### Git Docs
-
-https://git-scm.com/docs
-
 ### Init & Status
 
 - Do not initialize a git repository inside an existing git repository (use `git status` to verify you're not currently inside an existing repo before running `git init`).
@@ -182,10 +178,26 @@ https://git-scm.com/docs
 
 - "origin" is just a conventional remote name - it's the default remote name when you clone a GitHub repo. You can change it to whatever you like, but most people leave it.
 
+- `git switch <remote-branch-name>` or `git checkout --track <origin, typically>/<remote-branch-name>`: By default only one branch will be set up locally when you clone a repo to your machine. If the repo has multiple remote branches, this command creates a new local branch from an existing remote branch of the same name and sets it to track the remote branch.
+
 ### Pushing
 
-- `git push <remote> <branch>`: Push a specific local branch up to the remote.
-  - You can push multiple branches up to GitHub.
-  - Local branches and remote branches are distinct - they can have the same name and content, but technically they're separate entities. 
-  - Usually you'll be pushing a local branch up to remote branch of the same name, but `git push <remote> <local-branch>:<remote-branch>` would allow you to push a local branch to a remote branch with a different name.
-  - The `-u` flag in a command such as `git push -u origin main` sets the *upstream* of the branch we're pushing. Once the upsteam for a branch is set, you can use the `git push` shorthand to push the current branch to the upstream.
+- `git push <remote-name> <remote-branch-name>`: Push a specific local branch up to the remote.
+
+- You can push multiple branches up to GitHub.
+
+- Local branches and remote branches are distinct - they can have the same name and content, but technically they're separate entities. 
+
+- Usually you'll be pushing a local branch up to remote branch of the same name, but `git push <remote-name> <local-branch-name>:<remote-branch-name>` would allow you to push a local branch to a remote branch with a different name.
+
+- The `-u` flag in a command such as `git push -u origin main` sets the *upstream* of the branch we're pushing. Once the upsteam for a branch is set, you can use the `git push` shorthand to push the current branch to the upstream.
+
+### Fetching
+
+- Fetching allows you to download changes fom a remote repo into your local repo, but those changes will not be automatically integrated into your working files.
+
+- `git fetch <remote-name>`: Fetches branches and history from a specific remote repository. It only updates remote tracking branches.
+
+- `git fetch <remote-name> <branch-name>`: Fetches a specific branch from a remote repository.
+
+### Pulling
