@@ -200,4 +200,6 @@
 
 - `git fetch <remote-name> <branch-name>`: Fetches a specific branch from a remote repository.
 
+- Take a look at changes you've fetched using `git checkout <remote-name>/<branch-name>`.
+
 ### Pulling
