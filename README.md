@@ -180,6 +180,8 @@
 
 - `git switch <remote-branch-name>` or `git checkout --track <origin, typically>/<remote-branch-name>`: By default only one branch will be set up locally when you clone a repo to your machine. If the repo has multiple remote branches, this command creates a new local branch from an existing remote branch of the same name and sets it to track the remote branch.
 
+- `git branch -r`: The `-r` flag causes the remote-tracking branches to be listed.
+
 ### Pushing
 
 - `git push <remote-name> <remote-branch-name>`: Push a specific local branch up to the remote.
@@ -196,10 +198,25 @@
 
 - Fetching allows you to download changes fom a remote repo into your local repo, but those changes will not be automatically integrated into your working files.
 
-- `git fetch <remote-name>`: Fetches branches and history from a specific remote repository. It only updates remote tracking branches.
+- `git fetch <remote-name>`: Fetches branches and history from a specific remote repository. It only updates remote tracking branches, not the local branches or the working directory on your machine.
 
 - `git fetch <remote-name> <branch-name>`: Fetches a specific branch from a remote repository.
 
 - Take a look at changes you've fetched using `git checkout <remote-name>/<branch-name>`.
 
 ### Pulling
+
+- Pulling allows you to retrieve changes from a remote repo, but unlike fetching it updates the HEAD with whatever changes are retrieved from the remote.
+  
+- `git pull`: Essentially `git fetch` + `git merge`. Pulls changes from the remote branch tracking the local branch you're currently on.
+
+- `git pull <remote-name> <branch-name>`: Just like with git merge, it matters where we run this command from - whatever branch we run it from is where the changes will be merged into.
+  - This more specific command becomes more important when there are multiple remotes.
+
+- Pulls can result in merge conflicts.
+
+- It's a good practice, when collaborating on a project, to pull down changes before pushing your work to a remote repo.
+
+
+
+
