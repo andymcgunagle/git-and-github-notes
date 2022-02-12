@@ -217,6 +217,67 @@
 
 - It's a good practice, when collaborating on a project, to pull down changes before pushing your work to a remote repo.
 
+### Collaboration
 
+#### Feature Branches Workflow
 
+- Rather than working directly on the master or main branch, all new development should be done on separate branches.
 
+- Each branch is feature-oriented.
+
+#### Pull Requests
+
+- Pull requests are a feature built into products like GitHub - they are not native to Git itself.
+
+- They allow developers to alert teammates to new work that needs to be reviewed and provide a mechanism to approve or reject the work on a given branch.
+
+- They also help facilitate discussion and feedback on the specified commits.
+
+##### Resolving Pull Requests with Merge Conflicts
+
+- Click "command line instructions" and follow 2-step process they outline.
+
+###### Step 1
+1. `git fetch origin`
+1. `git switch <branch-name>`
+1. `git merge main`
+1. Fix conflicts
+
+###### Step 2
+1. `git switch main`
+1. `git merge <branch-name>`
+1. `git push origin main`
+
+#### Branch Protection Rules
+
+- Settings > Branches > Add rule
+
+- Branch name pattern: main
+
+- "Require pull request reviews before merging"
+
+- "You can't commit to `main` because it is a protected branch."
+
+#### Fork & Clone Workflow
+
+- A "fork" is a copy of another GitHub repo.
+
+- Very commonly used on large open-source projects.
+
+- Instead of just one centralized GitHub repo, every developer has their own GitHub repo. 
+
+- Make changes and push to your own fork before making pull requests to the original repo.
+
+- Forking is not a Git feature - it's implemented by GitHub.
+
+##### Process:
+
+1. Click "Fork" button.
+
+1. Clone the forked repo to your machine. A remote called "origin" that points to your forked repo on GitHub will automatically be added.
+
+1. Create a second remote (typically called "upstream" or "original") using `git remote add <new-remote-to-original-repo-name> <original-repo-URL>` that points to the original repo - this will enable you to pull changes down from the original repo.
+
+1. Pull changes down from original repo as needed using `git pull <remote-to-original-repo-name> <branch-name>`.
+
+1. Create a pull request from your forked GitHub repo to the original GitHub repo.
