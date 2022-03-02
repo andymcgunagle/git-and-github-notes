@@ -281,3 +281,61 @@
 1. Pull changes down from original repo as needed using `git pull <remote-to-original-repo-name> <branch-name>`.
 
 1. Create a pull request from your forked GitHub repo to the original GitHub repo.
+
+### Rebasing
+
+- The `git rebase` command can be used as an alternative to merging: 
+  - Instead of using a merge commit, rebasing rewrites history by creating new commits for each of the feature branch commits and placing them *onto* the tip of the master/main branch.
+  - This helps mininize the number of uninformative merge commits.
+  - This can be useful if you're working on a team and regularly need to merge in changes from the master/main branch and would prefer not to have a bunch of merge commits.
+  - Note that the feature branch you're on is the branch that is "rebased" (the history of the master/main branch is unchanged).
+
+- `git rebase <master/main>`: Calling this from a  feature branch will "rewind the head to replay your work on top of it" and apply each of your feature branch commits in order at the tip of the master/main branch. This creates a more linear commit structure without the uninformative merge commits.
+
+- WARNING: Generally you never want to rebase commits you have already shared with others (i.e. you've already pushed them up to GitHub). Make sure you're positive no one on the team is using the commits, as it can be a pain to reconcile alternate histories.
+
+- If there are merge conflicts when rebasing you'll usually want to: 
+  1. Resolve all conflicts manually
+  1. Mark them as resolved with `git add <conflicted-files>` 
+  1. Run `git rebase --continue`
+
+#### Cleaning Up History with Interactive Rebasing
+
+- `git rebase` can also be used to rewrite, delete, rename, or even reorder commits (before sharing them).
+
+- `git rebase -i HEAD~9`: Opens up interactive mode so you can refactor previous commits. The number after `HEAD~` specifies how many commits back you'd like to refactor.
+
+### Git Tags
+
+- Tags point at specific commits and refer to particular points in your Git history. They're most often used to mark version releases in projects.
+
+- `git tag`: Lists all the tags in the current repository.
+
+- `git tag -l "*beta*"`: Lists all the tags that include "beta" in their name (with any characters before or after the term "beta").
+
+- `git checkout <tag>`: Allows you to jump back to and view that commit in the same way you would by using the same command with a commit hash.
+
+- `git diff <tag-1> <tag-2>`: List the changes between the two tagged commits
+
+- `git tag <tagname>`: Creates a lightweight tag. By default, Git will create the tag referring to the commit that HEAD is referencing.
+
+- `git tag <tagname> <commit-hash>`: Creates a lightweight tag referencing the specified commit.
+
+- `git tag -a <tagname>`: Creates an anotated tag.
+
+- `git tag -d <tagname>`: Deletes the specified tag.
+
+- `git show <tagname>`: Shows additional data associated with a tag.
+
+- IMPORTANT: By default, `git push` doesn't transfer tags to remote repositories. If you have a lot of tags you want to push up at once, you can use the `git push origin --tags` command to transfer all your tags that are currently not in the remote repository. You can also push up inidividual tags with `git push origin <tag-names>`.
+
+#### Semantic Versioning
+
+- Given a version number MAJOR.MINOR.PATCH, increment the:
+  - MAJOR version when you make incompatible API changes
+  - MINOR version when you add functionality in a backwards compatible manner
+  - PATCH version when you make backwards compatible bug fixes
+
+- Typically version 1.0.0 defines the initial release of the public API.
+
+- Tags and Releases can easily be viewed on GitHub.
